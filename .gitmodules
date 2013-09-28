@@ -1,0 +1,39 @@
+[submodule "puppet-apache"]
+	path = puppet-apache
+	url = https://github.com/example42/puppet-apache
+[submodule "puppet/modules/apache"]
+	path = puppet/modules/apache
+	url = git@github.com:example42/puppet-apache.git
+[submodule "puppet/modules/apt"]
+	path = puppet/modules/apt
+	url = git@github.com:puppetlabs/puppetlabs-apt.git
+[submodule "puppet/modules/openssl"]
+	path = puppet/modules/openssl
+	url = git@github.com:camptocamp/puppet-openssl.git
+[submodule "puppet/modules/php"]
+	path = puppet/modules/php
+	url = git@github.com:example42/puppet-php.git
+[submodule "puppet/modules/timezone"]
+	path = puppet/modules/timezone
+	url = git@github.com:saz/puppet-timezone.git
+[submodule "puppet/modules/locales"]
+	path = puppet/modules/locales
+	url = git@github.com:attachmentgenie/puppet-module-locales.git
+[submodule "puppet/modules/puppi"]
+	path = puppet/modules/puppi
+	url = git@github.com:example42/puppi.git
+[submodule "puppet/modules/stdlib"]
+	path = puppet/modules/stdlib
+	url = git@github.com:puppetlabs/puppetlabs-stdlib.git
+[submodule "puppet/modules/concat"]
+	path = puppet/modules/concat
+	url = git@github.com:puppetlabs/puppetlabs-concat.git
+[submodule "puppet/modules/firewall"]
+	path = puppet/modules/firewall
+	url = git@github.com:puppetlabs/puppetlabs-firewall.git
+[submodule "puppet/modules/mysql"]
+	path = puppet/modules/mysql
+	url = git@github.com:puppetlabs/puppetlabs-mysql.git
+[submodule "src/gotcms"]
+	path = src/gotcms
+	url = git@github.com:GotCms/GotCms.git
