@@ -1,7 +1,6 @@
 *.box
 .vagrant
-iso
 src
-scripts/post-install.sh
-scripts/pre-install.sh
 
+.project
+.settings
