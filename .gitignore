@@ -1,5 +1,4 @@
 *.box
 .vagrant
-iso
 src/gotcms
 src/scripts/install.cfg
