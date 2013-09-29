@@ -1,7 +1,6 @@
 Exec { path => [ '/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/' ] }
 
 node 'common' {
-    include params
     include gotcms
 
     stage { 'setup':
@@ -29,9 +28,7 @@ node 'common' {
 }
 
 node 'gotcms' inherits 'common' {
+    include gotcms::params
     include gotcms::gotcms
 }
 
-class params {
-    $env = 'development'
-}

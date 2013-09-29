@@ -1,7 +1,7 @@
 define gotcms::php() {
 
     class { 'php': }
-    php::module { ['mysql', 'curl', 'intl', 'memcached']:
+    php::module { ['gd', 'mysql', 'curl', 'intl', 'memcached']:
         notify => Service['apache'],
     }
 

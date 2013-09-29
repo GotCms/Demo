@@ -1,48 +1,48 @@
 NameVirtualHost *:<%= port %>
 <VirtualHost *:<%= port %>>
-  ServerName <%= server_name_value %>
-  ServerAdmin <%= server_admin_email %>
+    ServerName <%= server_name_value %>
+    ServerAdmin <%= server_admin_email %>
 
-  <% if serveraliases.is_a? Array -%>
-  <% serveraliases.each do |name| -%><%= "  ServerAlias #{name}\n" %><% end -%>
-  <% elsif serveraliases != '' -%>
-  <%= "  ServerAlias #{serveraliases}" %>
-  <% end -%>
+    <% if serveraliases.is_a? Array -%>
+    <% serveraliases.each do |name| -%><%= "ServerAlias #{name}\n" %><% end -%>
+    <% elsif serveraliases != '' -%>
+    <%= "ServerAlias #{serveraliases}" %>
+    <% end -%>
 
-  setEnv APPLICATION_ENV <%= has_variable?('env') ? env : 'development' %>
+    setEnv APPLICATION_ENV <%= has_variable?('env') ? env : 'development' %>
 
-  DocumentRoot <%= real_docroot %>
+    DocumentRoot <%= real_docroot %>
 
-  <Directory />
-    Order allow,deny
-    deny from all
-  </Directory>
+    <Directory />
+        Order allow,deny
+        deny from all
+    </Directory>
 
-  <Directory <%= real_docroot %>>
-    Options FollowSymLinks
-    AllowOverride All
-    Order allow,deny
-    Allow from all
+    <Directory <%= real_docroot %>>
+        Options FollowSymLinks
+        AllowOverride All
+        Order allow,deny
+        Allow from all
 
-    # Compatibility with VirtualBox / Vagrant
-    # not good when working with NFS
-    EnableMMAP Off
-    # force read actual file
-    EnableSendfile Off
-  </Directory>
+        # Compatibility with VirtualBox / Vagrant
+        # not good when working with NFS
+        EnableMMAP Off
+        # force read actual file
+        EnableSendfile Off
+    </Directory>
 
-  <Directory <%= File.dirname(real_docroot) %>>
-    # Compatibility with VirtualBox / Vagrant
-    # not good when working with NFS
-    EnableMMAP Off
-    # force read actual file
-    EnableSendfile Off
-  </Directory>
+    <Directory <%= File.dirname(real_docroot) %>>
+        # Compatibility with VirtualBox / Vagrant
+        # not good when working with NFS
+        EnableMMAP Off
+        # force read actual file
+        EnableSendfile Off
+    </Directory>
 
-  ErrorLog ${APACHE_LOG_DIR}/<%= name %>_error.log
+    ErrorLog ${APACHE_LOG_DIR}/<%= name %>_error.log
 
-  LogLevel warn
-  CustomLog ${APACHE_LOG_DIR}/<%= name %>_access.log combined
+    LogLevel warn
+    CustomLog ${APACHE_LOG_DIR}/<%= name %>_access.log combined
 
-  ServerSignature Off
+    ServerSignature Off
 </VirtualHost>

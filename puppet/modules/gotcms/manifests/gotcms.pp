@@ -4,18 +4,8 @@ class gotcms::gotcms {
         source => 'puppet:///modules/gotcms/apache2/apache2.conf',
     }
 
-    apache::vhost { 'gotcms':
-        server_name => 'gotcms',
-        priority    => '20',
-        port        => '80',
-        docroot     => '/data/gotcms/public',
-        template    => 'gotcms/vhost.conf.erb'
-    }
-
     gotcms::mysql {'mysql':}
     gotcms::apache {'apache':}
-
-    include gotcms::ssl-apache2
 
     package { 'memcached':
         ensure => 'present',
@@ -25,9 +15,6 @@ class gotcms::gotcms {
         notify    => Service['apache'],
     }
 
-
-    $upload_limit = 2
-
     file {
         'apache2.ini':
             path    => '/etc/php5/apache2/php.ini',
@@ -35,7 +22,7 @@ class gotcms::gotcms {
             group   => 'www-data',
             owner   => 'www-data',
             replace => 'yes',
-            require => [gotcms::php['php'], File['/var/log/apache2/php5']],
+            require => [Php['php'], File['/var/log/apache2/php5']],
             notify  => Service['apache'];
         'apache.ports':
             require => Package['apache'],
@@ -65,4 +52,21 @@ class gotcms::gotcms {
             notify  => Service['apache'],
             mode    => 0644;
     }
+
+    $parameters = "user='$params::databaseUser'
+password='$params::databasePassword'
+database='$params::databaseName'
+hostname='$params::databaseHostname'"
+    $paramsFile = '/data/scripts/install.cfg'
+    file { $paramsFile:
+        path    => $paramsFile,
+        content => $parameters,
+    }
+
+    $scriptFile = '/data/scripts/install.sh'
+    file { $scriptFile:
+        path   => $scriptFile,
+        mode   => '755',
+    }
 }
+

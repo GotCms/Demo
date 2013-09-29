@@ -1,7 +1,5 @@
 *.box
 .vagrant
 iso
-src
-scripts/post-install.sh
-scripts/pre-install.sh
-
+src/gotcms
+src/scripts/install.cfg

@@ -21,6 +21,7 @@ Vagrant::configure('2') do |config|
         end
 
         gotcms.vm.network :private_network, ip: "192.168.107.5"
+        gotcms.vm.provision :shell, :inline => "/data/scripts/install.sh"
     end
 
     config.vm.synced_folder "src/", "/data", :id => "vagrant-root", :nfs => true
