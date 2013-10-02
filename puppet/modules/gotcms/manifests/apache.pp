@@ -27,25 +27,57 @@ define gotcms::apache() {
         install_package => true,
     }
 
-    file { '/var/log/apache2':
-        ensure => 'directory',
-        mode   => 'a+X',
-        owner  => 'root',
-        group  => 'root',
-    }
-
-    file { '/var/log/apache2/php5':
-        ensure => 'directory',
-        path   => '/var/log/apache2/php5',
-        group  => 'www-data',
-        owner  => 'www-data',
-    }
-
-    file { '/etc/apache2/ssl':
-        ensure => 'directory',
-        mode   => 'a+X',
-        owner  => 'root',
-        group  => 'root',
+    file {
+        '/var/log/apache2':
+            ensure => 'directory',
+            mode   => 'a+X',
+            owner  => 'root',
+            group  => 'root';
+        '/var/log/apache2/php5':
+            ensure => 'directory',
+            path   => '/var/log/apache2/php5',
+            group  => 'www-data',
+            owner  => 'www-data';
+        '/etc/apache2/ssl':
+            ensure => 'directory',
+            mode   => 'a+X',
+            owner  => 'root',
+            group  => 'root';
+        'apache2.ini':
+            path    => '/etc/php5/apache2/php.ini',
+            content => template('gotcms/php5/apache2.ini.erb'),
+            group   => 'www-data',
+            owner   => 'www-data',
+            replace => 'yes',
+            require => [Php['php'], File['/var/log/apache2/php5']],
+            notify  => Service['apache'];
+        'apache.ports':
+            require => Package['apache'],
+            path    => '/etc/apache2/ports.conf',
+            ensure  => present,
+            source  => 'puppet:///modules/gotcms/apache2/ports.conf',
+            owner   => root,
+            group   => root,
+            notify  => Service['apache'],
+            mode    => 0644;
+        'apache.security':
+            require => Package['apache'],
+            path    => '/etc/apache2/conf.d/security',
+            ensure  => present,
+            source  => 'puppet:///modules/gotcms/apache2/security',
+            owner   => root,
+            group   => root,
+            notify  => Service['apache'],
+            mode    => 0644;
+        'apache.envvars':
+            require => Package['apache'],
+            path    => '/etc/apache2/envvars',
+            ensure  => present,
+            source  => 'puppet:///modules/gotcms/apache2/envvars',
+            owner   => root,
+            group   => root,
+            notify  => Service['apache'],
+            mode    => 0644;
     }
 
     openssl::certificate::x509 { 'gotcms':

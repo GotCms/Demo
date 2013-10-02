@@ -2,3 +2,6 @@
 .vagrant
 src/gotcms
 src/scripts/install.cfg
+
+.project
+.settings
