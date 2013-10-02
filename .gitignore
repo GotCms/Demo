@@ -1,5 +1,6 @@
 *.box
 .vagrant
+puppet/modules/gotcms/manifests/params.pp
 src/gotcms
 src/scripts/install.cfg
 

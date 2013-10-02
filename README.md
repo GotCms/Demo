@@ -18,6 +18,7 @@ $ git submodule init
 $ git submodule update
 $ cd src
 $ git clone git@github.com:GotCms/GotCms.git gotcms
+$ ../setup.sh
 $ vagrant up
 ```
 
