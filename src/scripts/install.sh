@@ -20,5 +20,9 @@ cat /data/gotcms/data/install/tpl/config.tpl.php \
 | sed "s/__HOSTNAME__/$hostname/g" \
 > /data/gotcms/config/autoload/global.php
 
+echo "Copy files..."
+cp -R /data/gotcms/data/install/design/silverblog/files/ /data/gotcms/public/media/
+cp -R /data/gotcms/data/install/design/silverblog/frontend/* /data/gotcms/public/frontend/
+
 echo "Done"
 

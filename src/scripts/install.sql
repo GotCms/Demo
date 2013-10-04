@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `core_config_data` (
 --
 
 INSERT INTO `core_config_data` (`id`, `identifier`, `value`) VALUES
-(1, 'site_name', 'GoTCms'),
+(1, 'site_name', 'GotCms'),
 (2, 'site_is_offline', NULL),
 (3, 'cookie_domain', 'gotcms'),
 (4, 'session_lifetime', '3600'),
