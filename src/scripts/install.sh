@@ -24,6 +24,7 @@ echo "Copy files..."
 rm -rf /data/gotcms/public/media/*
 rm -rf /data/gotcms/public/frontend/*
 
+cp /data/scripts/files/* /data/gotcms/module/Admin/views/layouts/
 cp -R /data/gotcms/data/install/design/silverblog/files/ /data/gotcms/public/media/
 cp -R /data/gotcms/data/install/design/silverblog/frontend/* /data/gotcms/public/frontend/
 
