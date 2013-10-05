@@ -21,6 +21,9 @@ cat /data/gotcms/data/install/tpl/config.tpl.php \
 > /data/gotcms/config/autoload/global.php
 
 echo "Copy files..."
+rm -rf /data/gotcms/public/media/*
+rm -rf /data/gotcms/public/frontend/*
+
 cp -R /data/gotcms/data/install/design/silverblog/files/ /data/gotcms/public/media/
 cp -R /data/gotcms/data/install/design/silverblog/frontend/* /data/gotcms/public/frontend/
 
