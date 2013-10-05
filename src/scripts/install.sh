@@ -12,6 +12,8 @@ $command -Nse 'show tables' $database | while read table; do $command -e "SET FO
 
 echo "Install database..."
 $command $database< /data/scripts/install.sql
+$command -e "UPDATE core_config_data SET value = '$apacheVhost' WHERE identifier = 'cookie_domain';" $database
+
 cat /data/gotcms/data/install/tpl/config.tpl.php \
 | sed "s/__DRIVER__/pdo_mysql/g" \
 | sed "s/__USERNAME__/$user/g" \

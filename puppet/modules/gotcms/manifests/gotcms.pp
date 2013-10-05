@@ -18,7 +18,8 @@ class gotcms::gotcms {
     $parameters = "user='$params::databaseUser'
 password='$params::databasePassword'
 database='$params::databaseName'
-hostname='$params::databaseHostname'"
+hostname='$params::databaseHostname'
+apacheVhost='$params::apacheVhost'"
     $paramsFile = '/data/scripts/install.cfg'
     file { $paramsFile:
         path    => $paramsFile,
