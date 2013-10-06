@@ -23,7 +23,7 @@ cat /data/gotcms/data/install/tpl/config.tpl.php \
 > /data/gotcms/config/autoload/global.php
 
 echo "Copy files..."
-rm -rf /data/gotcms/public/media/*
+rm -rf /data/gotcms/public/media/files/*
 rm -rf /data/gotcms/public/frontend/*
 
 cp /data/scripts/files/* /data/gotcms/module/Admin/views/layouts/
