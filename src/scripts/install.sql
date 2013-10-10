@@ -62,7 +62,7 @@ INSERT INTO `core_config_data` (`id`, `identifier`, `value`) VALUES
 (2, 'site_is_offline', NULL),
 (3, 'cookie_domain', 'gotcms'),
 (4, 'session_lifetime', '3600'),
-(5, 'locale', 'fr_FR'),
+(5, 'locale', 'en_GB'),
 (6, 'mail_from', 'myemail@myserver.com'),
 (7, 'mail_from_name', 'Firstname Lastname'),
 (8, 'dashboard_widgets', ''),
