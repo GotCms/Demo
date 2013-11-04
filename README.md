@@ -27,3 +27,7 @@ Edit your /etc/hosts and add the following line:
 `192.168.107.5   gotcms`
 
 For Windows users, you must open you text editor in admin mode and after open the file C:\Windows\System32\drivers\etc\hosts.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/GotCms/demo/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
