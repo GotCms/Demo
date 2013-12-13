@@ -83,7 +83,8 @@ INSERT INTO `core_config_data` (`id`, `identifier`, `value`) VALUES
 (23, 'unsecure_cdn_base_path', ''),
 (24, 'secure_cdn_base_path', ''),
 (25, 'force_backend_ssl', ''),
-(26, 'force_frontend_ssl', '');
+(26, 'force_frontend_ssl', ''),
+(27, 'stream_wrapper_is_active', '1');
 
 -- --------------------------------------------------------
 
