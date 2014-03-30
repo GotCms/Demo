@@ -40,8 +40,7 @@ find $directory/module/Admin/views/layouts/ -name "*.phtml" -exec sed -i "s#</bo
 
 cp -R $directory/data/install/design/silverblog/files/ $directory/public/media/
 cp -R $directory/data/install/design/silverblog/frontend/* $directory/public/frontend/
-cp -R /data/scripts/files/* $directory/module/Development/views/
+cp -R /data/scripts/files/* $directory/templates/
 cd $directory ; git checkout public/frontend/tmp/.gitignore
 
 echo "Done"
-

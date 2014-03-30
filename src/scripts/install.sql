@@ -109,9 +109,8 @@ CREATE TABLE IF NOT EXISTS `core_session` (
 
 CREATE TABLE IF NOT EXISTS `core_translate` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `source` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`source`)
+  `source` text COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=381 ;
 
 --
@@ -508,7 +507,7 @@ INSERT INTO `core_translate` (`id`, `source`) VALUES
 
 CREATE TABLE IF NOT EXISTS `core_translate_locale` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `destination` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `destination` text COLLATE utf8_unicode_ci NOT NULL,
   `locale` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `core_translate_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
@@ -1748,6 +1747,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `retrieve_password_key` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   `retrieve_updated_at` datetime DEFAULT NULL,
+  `active` BOOLEAN DEFAULT true,
   `user_acl_role_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`email`),
