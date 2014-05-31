@@ -1,33 +1,32 @@
 #GotCms demonstration
 
-This project help you to test GotCms with vagrant and puppet.
+This project help you to test GotCms with Vagrant and OpsCode Chef
 
 
 ##Requirement
+- Vagrant: http://www.vagrantup.com
+- VirtualBox: https://www.virtualbox.org
 
-- Vagrant : http://www.vagrantup.com/
-- VirtualBox : https://www.virtualbox.org/
+##Vagrant plugins
+- vagrant-berkshelf
 
+```
+vagrant plugin install vagrant-berkshelf --plugin-version '>= 2.0.1'
+```
 
-##Install
+##Usage
+
+Edit your `/etc/hosts` file and add the following line:
+
+`192.168.107.5   gotcms`
+
+For Windows users, you must open you text editor in admin mode and after open the file `C:\Windows\System32\drivers\etc\hosts`.
+
 
 ```
 $ git clone git@github.com:GotCms/Demo.gi demo.gotcms
 $ cd demo.gotcms
-$ git submodule init
-$ git submodule update
-$ cd src
-$ git clone git@github.com:GotCms/GotCms.git gotcms
-$ ../setup.sh
-$ vagrant up
+$ vagrant up --provider=virtualbox
 ```
 
-Edit your /etc/hosts and add the following line:
-
-`192.168.107.5   gotcms`
-
-For Windows users, you must open you text editor in admin mode and after open the file C:\Windows\System32\drivers\etc\hosts.
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/GotCms/demo/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
