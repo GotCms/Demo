@@ -36,7 +36,7 @@ Vagrant::configure('2') do |config|
       chef.json = json
     end
 
-    gotcms.vm.provision :shell, :path => './scripts/install.sh' if json.key('analytics')
+    gotcms.vm.provision :shell, :path => './scripts/install.sh' if json.key?('analytics')
     gotcms.vm.network :private_network, ip: '192.168.107.5'
   end
 end
