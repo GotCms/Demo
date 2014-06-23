@@ -11,7 +11,7 @@ ga="    <script>\n\
         ga('send', 'pageview');\n\
     </script>"
 
-find /var/www/gotcms/module/Admin/views/layouts/ -name "*.phtml" -exec sed -i "s#</body>#$ga\n</body>#" '{}' \;
+find /var/www/gotcms/module/GcBackend/views/layouts/ -name "*.phtml" -exec sed -i "s#</body>#$ga\n</body>#" '{}' \;
 find /var/www/gotcms/templates/layout/ -name "*.phtml" -exec sed -i "s#</body>#$ga\n</body>#" '{}' \;
 
 echo "Done"
